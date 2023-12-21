@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import Saldo from "../../componentes/Saldo";
+import Saldo from "../../componentes/Principal/Saldo";
 
 describe("<Saldo /> component", () => {
-  test("Mjst render balance with monetary value", () => {
+  test("Must render balance with monetary value", () => {
     render(<Saldo saldo={1000} />);
 
     const balance = screen.getByTestId("saldo");

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import Formulario from "../../componentes/Formulario";
+import Formulario from "../../componentes/Transacao/Formulario";
 
 describe("Must render an input field", () => {
   test("", () => {
