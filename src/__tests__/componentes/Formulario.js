@@ -22,3 +22,22 @@ describe("Must render an input field", () => {
     expect(textField).toHaveValue(50);
   });
 });
+
+test("Must call an onSubmit event when button is clicked", () => {
+  const submitTransaction = jest.fn();
+
+  render(<Formulario realizarTransacao={submitTransaction} />);
+  const button = screen.getByRole("button");
+
+  userEvent.click(button);
+  expect(submitTransaction).toHaveBeenCalledTimes(1);
+});
+
+test('Must be possible to select an option from the element <select/>', () => {
+  render(<Formulario />);
+  const select = screen.getByRole('combobox');
+  userEvent.selectOptions(select, ['Depósito']);
+
+  expect(screen.getByRole('option', { name: 'Selecione um tipo de transação' }).selected).toBe(false);
+  expect(screen.getByRole('option', { name: 'Depósito' }).selected).toBe(true);
+});
