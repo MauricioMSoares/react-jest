@@ -30,6 +30,10 @@ const mockRequestError = () => {
 }
 
 describe("Requests to API", () => {
+  beforeEach(() => {
+    api.get.mockClear();
+  });
+
   test("Must return a list of transactions", async () => {
     api.get.mockImplementation(() => mockRequest(mockTransaction));
 
